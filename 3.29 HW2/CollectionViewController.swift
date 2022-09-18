@@ -86,12 +86,7 @@ class CollectionViewController: UICollectionViewController {
             self.present(alert, animated: true)
         }
     }
-}
-
-    private func fetchAlienMorty() {
-        
-    }
-
+    
     private func fetchNimbusSecretary() {
         
     }
@@ -99,8 +94,7 @@ class CollectionViewController: UICollectionViewController {
     private func fetchRickSanches() {
         
     }
-    
-
+}
 
     //MARK: - Networking
     extension CollectionViewController {
@@ -114,10 +108,19 @@ class CollectionViewController: UICollectionViewController {
                     print(error?.localizedDescription ?? "No error description")
                     return
                 }
-            
-
+                
+                let jsonDecoder = JSONDecoder()
+                
+                do {
+                    let AlienMorty = try jsonDecoder.decode(RickAndMorty.self, from: data)
+                    self.successAlert()
+                } catch {
+                    print(error.localizedDescription)
+                    self.failedAlert()
+                }
             }
+            task.resume()
         }
     }
-    
+
 

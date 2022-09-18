@@ -7,6 +7,10 @@
 
 import Foundation
 
-struct RickAndMorty {
+struct RickAndMorty: Decodable {
+    let name: String?
+    let status: String?
+    let species: String?
+    let gender: String?
     
 }
