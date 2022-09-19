@@ -41,6 +41,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A251ECCB28D83D79006C5E58 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A2C6697728D7567D009B75E3 /* RickAndMorty.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A251ECCC28D83D92006C5E58 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A2C6697328D6F9AF009B75E3 /* CollectionViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A251ECCD28D83DB4006C5E58 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A2C6696828D6F92E009B75E3 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A251ECCE28D83DD2006C5E58 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A2C6697528D70257009B75E3 /* CollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A251ECCF28D83DE2006C5E58 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A2C6696528D6F92E009B75E3 /* Main.storyboard */,
+				A2C6696A28D6F92E009B75E3 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A251ECD028D83E02006C5E58 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A2C6696128D6F92E009B75E3 /* SceneDelegate.swift */,
+				A2C6695F28D6F92E009B75E3 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		A2C6695328D6F92E009B75E3 = {
 			isa = PBXGroup;
 			children = (
@@ -60,14 +110,12 @@
 		A2C6695E28D6F92E009B75E3 /* 3.29 HW2 */ = {
 			isa = PBXGroup;
 			children = (
-				A2C6695F28D6F92E009B75E3 /* AppDelegate.swift */,
-				A2C6696128D6F92E009B75E3 /* SceneDelegate.swift */,
-				A2C6696528D6F92E009B75E3 /* Main.storyboard */,
-				A2C6697328D6F9AF009B75E3 /* CollectionViewController.swift */,
-				A2C6697728D7567D009B75E3 /* RickAndMorty.swift */,
-				A2C6697528D70257009B75E3 /* CollectionViewCell.swift */,
-				A2C6696828D6F92E009B75E3 /* Assets.xcassets */,
-				A2C6696A28D6F92E009B75E3 /* LaunchScreen.storyboard */,
+				A251ECCB28D83D79006C5E58 /* Model */,
+				A251ECCC28D83D92006C5E58 /* ViewControllers */,
+				A251ECCE28D83DD2006C5E58 /* Views */,
+				A251ECCF28D83DE2006C5E58 /* Storyboards */,
+				A251ECD028D83E02006C5E58 /* App */,
+				A251ECCD28D83DB4006C5E58 /* Resources */,
 				A2C6696D28D6F92E009B75E3 /* Info.plist */,
 			);
 			path = "3.29 HW2";

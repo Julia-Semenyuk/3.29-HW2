@@ -21,11 +21,9 @@ enum UserAction: String, CaseIterable {
 }
 
 
-class CollectionViewController: UICollectionViewController {
+final class CollectionViewController: UICollectionViewController {
 
     private let userActions = UserAction.allCases
-
-   
 
     // MARK: UICollectionViewDataSource
 
@@ -50,7 +48,6 @@ class CollectionViewController: UICollectionViewController {
         let userAction = userActions[indexPath.item]
         
         switch userAction {
-            
         case .fetchAlienMorty: fetchAlienMorty()
         case .fetchNimbusSecretary: fetchNimbusSecretary()
         case .fetchRickSanches: fetchRickSanches()
@@ -86,18 +83,10 @@ class CollectionViewController: UICollectionViewController {
             self.present(alert, animated: true)
         }
     }
-    
-    private func fetchNimbusSecretary() {
-        
-    }
-
-    private func fetchRickSanches() {
-        
-    }
 }
 
     //MARK: - Networking
-    extension CollectionViewController {
+extension CollectionViewController {
         private func fetchAlienMorty() {
             guard let url = URL(string: Link.alienMortyURL.rawValue ) else { return }
             
@@ -112,7 +101,7 @@ class CollectionViewController: UICollectionViewController {
                 let jsonDecoder = JSONDecoder()
                 
                 do {
-                    let AlienMorty = try jsonDecoder.decode(RickAndMorty.self, from: data)
+                    let alienMorty = try jsonDecoder.decode(RickAndMorty.self, from: data)
                     self.successAlert()
                 } catch {
                     print(error.localizedDescription)
@@ -121,6 +110,48 @@ class CollectionViewController: UICollectionViewController {
             }
             task.resume()
         }
+        
+        private func fetchNimbusSecretary() {
+            guard let url = URL(string: Link.nimbusSecretaryURL.rawValue ) else { return }
+            
+            let session = URLSession(configuration: .default)
+            
+            let task = session.dataTask(with: url) { data, _, error in
+                guard let data = data else {
+                    print(error?.localizedDescription ?? "No error description")
+                    return
+                }
+                
+                let jsonDecoder = JSONDecoder()
+                
+                do {
+                    let nimbusSecrtetary = try jsonDecoder.decode(RickAndMorty.self, from: data)
+                    self.successAlert()
+                } catch {
+                    print(error.localizedDescription)
+                    self.failedAlert()
+                }
+            }
+            task.resume()
+        }
+    private func fetchRickSanches() {
+        guard let url = URL(string: Link.rickSanchesURL.rawValue ) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "No error description")
+                return
+            }
+            
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                let rickSanches = try jsonDecoder.decode(RickAndMorty.self, from: data)
+                self.successAlert()
+            } catch {
+                print(error.localizedDescription)
+                self.failedAlert()
+            }
+        } .resume()
     }
-
-
+}

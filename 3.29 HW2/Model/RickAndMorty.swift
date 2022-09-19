@@ -12,5 +12,7 @@ struct RickAndMorty: Decodable {
     let status: String?
     let species: String?
     let gender: String?
+    let image: String?
+    let episode: [String?]
     
 }
